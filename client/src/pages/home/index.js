@@ -15,8 +15,8 @@ const Home = ({ username, setUsername, room, setRoom, socket }) => {
 
   return (
     <div className={styles.container}>
+      <h1>{`Chat Apps`}</h1>
       <div className={styles.formContainer}>
-        <h1>{`<>DevRooms</>`}</h1>
         <input
           className={styles.input}
           placeholder='Username...'
