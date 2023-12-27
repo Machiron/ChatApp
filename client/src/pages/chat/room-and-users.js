@@ -25,27 +25,29 @@ const RoomAndUsers = ({ socket, username, room }) => {
 
   return (
     <div className={styles.roomAndUsersColumn}>
-      <h2 className={styles.roomTitle}>{room}</h2>
+      <button onClick={leaveRoom}>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </button>
+      <h1 className={styles.roomTitle}>{room}</h1>
 
-      <div>
-        {roomUsers.length > 0 && <h5 className={styles.usersTitle}>Users:</h5>}
+      <div className={styles.listUser} >
+        {roomUsers.length > 0 && <h5 className={styles.usersTitle}>Users</h5>}
         <ul className={styles.usersList}>
           {roomUsers.map((user) => (
             <li
               style={{
                 fontWeight: `${user.username === username ? 'bold' : 'normal'}`,
+                fontStyle: `${user.username === username ? 'italic' : 'normal'}`,
+                color: `${user.username === username ? 'red' : 'black'}`,
               }}
               key={user.id}
             >
+              <i class="fa-solid fa-user-astronaut"></i> 
               {user.username}
             </li>
           ))}
         </ul>
       </div>
-
-      <button className='btn btn-outline' onClick={leaveRoom}>
-        Leave
-      </button>
     </div>
   );
 };

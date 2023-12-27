@@ -7,8 +7,7 @@ const Chat = ({ username, room, socket }) => {
   return (
     <div className={styles.chatContainer}>
       <RoomAndUsersColumn socket={socket} username={username} room={room} />
-
-      <div>
+      <div className={styles.chatbox}>
         <MessagesReceived socket={socket} />
         <SendMessage socket={socket} username={username} room={room} />
       </div>

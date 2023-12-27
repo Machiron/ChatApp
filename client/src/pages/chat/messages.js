@@ -58,15 +58,24 @@ const Messages = ({ socket }) => {
   return (
     <div className={styles.messagesColumn} ref={messagesColumnRef}>
       {messagesRecieved.map((msg, i) => (
-        <div className={styles.message} key={i}>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <span className={styles.msgMeta}>{msg.username}</span>
-            <span className={styles.msgMeta}>
-              {formatDateFromTimestamp(msg.__createdtime__)}
-            </span>
-          </div>
-          <p className={styles.msgText}>{msg.message}</p>
-          <br />
+        <div className={styles.chatbot}>
+          <ul className={styles.chatbotmes}>
+            <li className={styles.incoming}>
+              <div className={styles.incomingIcon}><i class="fa-regular fa-user"></i></div>
+              <div className={styles.avauser} >
+                <div className={styles.msgMetaU}>{msg.username}</div>
+                <div className={styles.message} key={i}>
+                  <div>
+                    <span className={styles.msgMeta}>
+                      {formatDateFromTimestamp(msg.__createdtime__)}
+                    </span>
+                  </div>
+                  <p className={styles.msgText}>{msg.message}</p>
+
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
       ))}
     </div>
